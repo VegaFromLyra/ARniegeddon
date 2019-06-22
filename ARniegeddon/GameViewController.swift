@@ -53,17 +53,13 @@ class GameViewController: UIViewController {
     
     if let view = self.view as! ARSKView? {
       sceneView = view
+      sceneView!.delegate = self
       
-      // Load the SKScene from 'GameScene.sks'
-      if let scene = SKScene(fileNamed: "GameScene") {
-        // Set the scale mode to scale to fit the window
-        scene.scaleMode = .aspectFill
-        
-        // Present the scene
-        view.presentScene(scene)
-      }
+      let scene = GameScene(size: view.bounds.size)
+      scene.scaleMode = .resizeFill
+      scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
       
-      view.ignoresSiblingOrder = true
+      view.presentScene(scene)
       
       view.showsFPS = true
       view.showsNodeCount = true
