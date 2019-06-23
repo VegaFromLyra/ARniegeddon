@@ -43,6 +43,13 @@ extension GameViewController: ARSKViewDelegate {
     print("Session resumed")
     sceneView.session.run(session.configuration!, options: [.resetTracking, .removeExistingAnchors])
   }
+  
+  func view(_ view:ARSKView,
+            nodeFor anchor: ARAnchor) -> SKNode? {
+    let bug = SKSpriteNode(imageNamed: "bug")
+    bug.name = "Gappu"
+    return bug
+  }
 }
 
 class GameViewController: UIViewController {
