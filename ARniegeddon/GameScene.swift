@@ -42,7 +42,7 @@ class GameScene: SKScene {
       else { return }
     
     var translation = matrix_identity_float4x4
-    translation.columns.3.z = -0.3
+    translation.columns.3.y = -0.3
     
     let transform = currentFrame.camera.transform * translation
     
